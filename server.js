@@ -39,17 +39,17 @@ hbs.registerHelper('screamIt', (text) => {
     return text.toUpperCase();
 });
 
-app.get('/', (request, response) =>{
-  //  response.send('<h1>Hello express!</h1>')
-  response.send({
-      name: 'Sarit',
-      likes: [
-          'Dogs',
-          'Yoga',
-          'Node'
-      ]
-  })
-});
+// app.get('/', (request, response) =>{
+//   //  response.send('<h1>Hello express!</h1>')
+// //   response.send({
+// //       name: 'Sarit',
+// //       likes: [
+// //           'Dogs',
+// //           'Yoga',
+// //           'Node'
+// //       ]
+// //   })
+// });
 
 app.get('/about', (req, res) => {
     res.render('about.hbs', {
@@ -57,10 +57,17 @@ app.get('/about', (req, res) => {
     });
 });
 
-app.get('/home', (req, res) => {
+app.get('/', (req, res) => {
     res.render('home.hbs', {
-        pageTitle: 'home',
+        pageTitle: 'Home Page',
         welcome: 'Hi, feel free to look around',
+    });
+});
+
+app.get('/projects', (req, res) => {
+    res.render('projects.hbs', {
+        pageTitle: 'projects',
+        welcome: 'All of my personal projects',
     });
 });
 
